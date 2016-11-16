@@ -1,18 +1,20 @@
 var React = require('react');
+var transparentBg = require('../styles').transparentBg;
+
 
 var Prompt = React.createClass({
   render: function () {
     return (
       <div className="jumbotron col-sm-6 col-sm-offset-3 text-center" style={transparentBg}>
-        <h1>{this.props.route.header}</h1>
+        <h1>{this.props.header}</h1>
         <div className="col-sm-12">
-          <form onSubmit={this.onSubmitUser}>
+          <form onSubmit={this.props.onSubmitUser}>
             <div className="form-group">
               <input
                 type="text"
                 className="form-control"
-                onChange={this.onUpdateUser}
-                value={this.state.username}
+                onChange={this.props.onUpdateUser}
+                value={this.props.username}
                 placeholder="Github Username" />
             </div>
           </form>

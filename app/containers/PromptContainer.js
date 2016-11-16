@@ -1,5 +1,4 @@
 var React = require('react');
-var transparentBg = require('../styles').transparentBg;
 var Prompt = require('../components/Prompt')
 
 var PromptContainer = React.createClass({
@@ -11,7 +10,7 @@ var PromptContainer = React.createClass({
       username: ''
     )
   },
-  onUpdateUser: function (e) {
+  handleUpdateUser: function (e) {
     this.setState({
       username: e.target.value
     })
@@ -38,7 +37,10 @@ var PromptContainer = React.createClass({
   render: function () {
     return (
       <Prompt
-        onSubmitUser={this.handleSubmitUser}/>
+        onSubmitUser={this.handleSubmitUser}
+        onUpdateUser={this.handleUpdateUser}
+        header={this.props.route.header}
+        username={this.state.username}/>
     )
   }
 });
